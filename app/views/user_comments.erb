@@ -1,0 +1,10 @@
+<div class="container">
+
+  <h2><%= @user.name %>'s Comments</h2>
+  
+  <% @comments.each do |comment| %>
+    <%= Post.find(comment.post_id).title %><br/>
+    <%= comment.body %><br>
+  <% end %>
+  
+</div>

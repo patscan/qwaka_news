@@ -7,3 +7,19 @@
 th {
   text-align: left;
 }
+
+header{
+  background-color: grey;
+}
+
+header h1 {
+  display: inline;
+}
+
+.header_buttons {
+  display: inline;
+}
+
+header a{
+  display: inline;
+}

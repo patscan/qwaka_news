@@ -19,14 +19,16 @@
 </head>
 <body>
   <header>
-    <h2><a href="/">Qwaka News</a></h2>
-    
+    <h1><a href="/">Qwaka News</a></h1>
     <% if current_user %>
-      <h3 class ="log_in_header">Welcome, <a href="/users/@current_user.name"><%=current_user.name%> </a> </h3>
+    <h3 class ="log_in_header">Welcome, <a href="/user/<%=current_user.id%>"><%=current_user.name%> </a> </h3>
+    <a href='/logout'>Click here to logout</a>
     <% else %>
-      <h2 class ="log_in_header"> <a href="/log_sign">log in or sign up</a> </h2>
-      <% end %>
+    <a href='/login'>Click here to log in!</a>
+    <a href='/signup'>Click here to sign up!</a>
+    <% end %>
+    <div class="header_buttons" id="submit"><a href="/post/new">Submit a new post!</a></div>
   </header>
   <%= yield %> 
-  </body>
+</body>
 </html>

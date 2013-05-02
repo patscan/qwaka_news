@@ -1,0 +1,6 @@
+User.create(name: "sean", password:"viewsonic")
+User.create(name: 'pat', password: "password")
+Post.create(title: "title", url:"a whole bunch of shit", user_id: 1)
+Post.create(title: "anothertitle", url:"a whole bunch of shit", user_id: 2)
+Comment.create(body:"a whoas dflkajsdf", user_id: 1, post_id: 2)
+Comment.create(body:"a whoas dflasdfasdfskajsdf", user_id: 2, post_id: 1)

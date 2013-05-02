@@ -1,0 +1,14 @@
+<div class="container">
+
+    <div class="errors">
+    <%if @errors%>
+      <p><%=@errors%></p
+    <%end%>
+  </div>
+  <form method="post" action="/sign_up">
+    <input type="text" placeholder="username" name="user[name]">
+    <input type="password" placeholder="password" name="user[password]">
+    <!-- <input type="hidden" value="#{session[:referrer] = request.referrer}"> -->
+    <input type="submit" value="sign up">
+  </form>
+</div>

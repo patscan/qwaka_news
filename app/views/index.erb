@@ -1,5 +1,16 @@
 <div class="container">
-  homepage
+  <% if @you_fucked_up %>
+    <p>You must create an account to post, jerk.</p>
+  <% end %>
 
-
+  <ol>
+    <% Post.all.each do |post|%>
+    <li>
+      <a href='/post/<%= post.id %>'><%= post.title %> </a>
+      <%= post.created_at %>
+      <a href='/profile/<%=post.user_id%>'><%= User.find(post.user_id).name%></a>
+      <%= Comment.where("post_id = ?", post.id).length%>comments
+    </li>
+    <% end %>
+  </ol>
 </div>
