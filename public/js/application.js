@@ -34,7 +34,6 @@ $('.arrow_comment').click(function(){
     type: "post",
     data: commentVoteData
    }).success(function(){
-    alert("some shit worked!");
    });
   }
 );
