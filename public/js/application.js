@@ -1,7 +1,46 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+$('.arrow').click(function(){
+  // console.log($(this).data('arrow'));
+  // console.log($(this).data('postid'));
+  var clickedObj = $(this);
+  console.log(clickedObj);
+  var voteData = {upvote: $(this).data('arrow'),
+              post_id: $(this).data('postid')
+            };
+   $.ajax({
+    url: "/post/vote",
+    type: "post",
+    data: voteData
+   }).done(function(){
+    // console.log($(this));
+    console.log(clickedObj);
+    clickedObj.hide('fast');
+    clickedObj.siblings().show();
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+    // $('.arrow').hide();
+   });
+  }
+);
+
+$('.arrow_comment').click(function(){
+  // console.log($(this).data('arrow'));
+  // console.log($(this).data('postid'));
+  var commentVoteData = {upvote: $(this).data('arrow'),
+              comment_id: $(this).data('commentid')
+            };
+    console.log(commentVoteData);
+   $.ajax({
+    url: "/comment/vote",
+    type: "post",
+    data: commentVoteData
+   }).success(function(){
+    alert("some shit worked!");
+   });
+  }
+);
 });
+// $('a').on('click', function(even){ $(this).data('post-id')})
+
+// $('.arrow').click(function(){
+//   console.log($(this).data('arrow'));
+// })

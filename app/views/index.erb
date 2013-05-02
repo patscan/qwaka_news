@@ -6,6 +6,11 @@
   <ol>
     <% Post.all.each do |post|%>
     <li>
+      <div class="arrows">
+        <img class="arrow" data-postid="<%=post.id%>" data-arrow='1' src='/grayarrow_up.gif'>
+        <img class="arrow" data-postid="<%=post.id%>" data-arrow='0' src='/grayarrow_down.gif'>
+      </div>
+       score: <%= post.post_votes.where("upvote = ?", true).count - post.post_votes.where("upvote = ?", false).count %>
       <a href='/post/<%= post.id %>'><%= post.title %> </a>
       <%= post.created_at %>
       <a href='/profile/<%=post.user_id%>'><%= User.find(post.user_id).name%></a>

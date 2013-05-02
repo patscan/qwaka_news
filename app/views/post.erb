@@ -1,5 +1,5 @@
 <div class="container">
-  
+
   <form id="submit_comment" name="new_comment" method="post" action="/comment/new/<%= @post.id %>">
     <!-- <input type="hidden" name="post_id" value="<%= @post.id %>"> -->
     <textarea placeholder="Your comment here. Keep it polite." name="comment_text"></textarea>
@@ -8,16 +8,20 @@
 
   <h2>Post</h2>
 
-    Post title: <%= @post.title %></a><br/>
-    Post id: <%= @post.id %><br/>
-    Post content: <%= @post.url%><br/>
-    Created at:<%= @post.created_at%><br/>
+  Post title: <%= @post.title %></a><br/>
+  Post id: <%= @post.id %><br/>
+  Post content: <%= @post.url%><br/>
+  Created at:<%= @post.created_at%><br/>
 
   <h2>Comments</h2>
   <% @post.comments.each do |comment| %>
-    <%= Post.find(comment.post_id).title%><br/>
-    <%= comment.body%><br/>
-    <%= comment.created_at%><br/>
+  <img class="arrow_comment" data-commentid="<%=comment.id%>" data-arrow='1' src='/grayarrow_up.gif'>
+  <img class="arrow_comment" data-commentid="<%=comment.id%>" data-arrow='0' src='/grayarrow_down.gif'>
+  <%= Post.find(comment.post_id).title%><br/>
+  <%= comment.body%><br/>
+  <%= comment.created_at%><br/>
   <% end %>
 
 </div>
+
+

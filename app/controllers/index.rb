@@ -92,9 +92,13 @@ post "/comment/new/:post_id" do
 end
 
 
+post "/post/vote" do
+  @postvote = PostVote.create(upvote: params["upvote"].to_i, post_id: params["post_id"].to_i)
+end
 
-
-
+post '/comment/vote' do
+  @commentvote = CommentVote.create(upvote: params["upvote"].to_i, comment_id: params["comment_id"])
+end
 
 
 
